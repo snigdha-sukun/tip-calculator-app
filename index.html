@@ -7,48 +7,58 @@
   <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="./index.css">
+  <script src="./index.js" defer></script>
 
   <title>Frontend Mentor | Tip calculator app</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution {
-      font-size: 11px;
-      text-align: center;
-    }
-
-    .attribution a {
-      color: hsl(228, 45%, 44%);
-    }
   </style>
 </head>
 
 <body>
+  <header>
+    <img src="./images/logo.svg" alt="logo" />
+  </header>
 
-  Bill
-
-  Select Tip %
-  5%
-  10%
-  15%
-  25%
-  50%
-  Custom
-
-  Number of People
-
-  Tip Amount
-  / person
-
-  Total
-  / person
-
-  Reset
-
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+  <main>
+    <form class="calculator">
+      <label for="bill">Bill</label>
+      <input type="number" id="bill" min="0" class="bill" placeholder="0.00" onkeypress="return event.charCode != 45" />
+      <label for="tip-options">Select Tip %</label>
+      <div id="tip-options" class="options">
+        <div class="option btn" id="tip5">5%</div>
+        <div class="option btn" id="tip10">10%</div>
+        <div class="option btn" id="tip15">15%</div>
+        <div class="option btn" id="tip25">25%</div>
+        <div class="option btn" id="tip50">50%</div>
+        <input class="custom-option" type="number" id="custom" placeholder="Custom"
+          onkeypress="return event.charCode != 45" />
+      </div>
+      <div class="no-of-people">
+        <label for="people">Number of People</label>
+        <span class="error-text" id="err-txt">Can't be zero
+      </div>
+      </div>
+      <input type="number" id="people" class="people" min="0" step="1" placeholder="0"
+        onkeypress="return event.charCode >= 48 && event.charCode <= 57" />
+    </form>
+    <div class="amount">
+      <div class="amount-to-pay">
+        <div class="title">
+          <p class="title-text">Tip Amount</p>
+          <p class="per-person">/ person</p>
+        </div>
+        <div class="money">$<span id="tip-amount">0.00</span></div>
+      </div>
+      <div class="amount-to-pay">
+        <div class="title">
+          <p class="title-text">Total</p>
+          <p class="per-person">/ person</p>
+        </div>
+        <div class="money">$<span id="total-amount">0.00</span></div>
+      </div>
+      <button class="reset-btn btn" id="reset" disabled>RESET</button>
+    </div>
+  </main>
 </body>
 
 </html>

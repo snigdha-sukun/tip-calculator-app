@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+    --strong-cyan: hsl(172, 67%, 45%);
+    --very-dark-cyan: hsl(183, 100%, 15%);
+    --dark-grayish-cyan: hsl(186, 14%, 43%);
+    --grayish-cyan: hsl(184, 14%, 56%);
+    --light-grayish-cyan: hsl(185, 41%, 84%);
+    --very-light-grayish-cyan: hsl(189, 41%, 97%);
+    --white: hsl(0, 0%, 100%);
+    --hover-cyan: hsl(173, 61%, 77%);
+    --disabled-cyan: hsl(183, 79%, 24%);
+    --error-red: hsl(13, 35%, 57%);
+    --font-size: 24px;
+    --font-weight: 700;
+    --font-family: "Space Mono", monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family);
+    font-weight: var(--font-weight);
+}
+
+body {
+    background-color: var(--light-grayish-cyan);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: var(--font-size);
+    padding: 1em;
+}
+
+header {
+    margin-top: 1em;
+}
+
+main {
+    background-color: var(--white);
+    padding: 1em;
+    margin: 1em;
+    border-radius: 0.5em;
+    display: flex;
+    width: 36em;
+    color: var(--dark-grayish-cyan);
+}
+
+input {
+    border: none;
+    background-color: var(--very-light-grayish-cyan);
+    color: var(--very-dark-cyan);
+    padding: 0.2em 1em 0.2em 0;
+    border-radius: 0.2em;
+    width: 100%;
+    cursor: pointer;
+    text-align: right;
+    font-size: 1em;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+::placeholder {
+    color: var(--grayish-cyan);
+}
+
+input:focus {
+    border: 0.1em solid var(--strong-cyan);
+    outline: none;
+}
+
+label {
+    font-size: 0.8em;
+    margin: 0.5em 0;
+}
+
+button {
+    all: unset;
+}
+
+.calculator {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    width: 50%;
+}
+
+.amount {
+    background-color: var(--very-dark-cyan);
+    color: var(--white);
+    padding: 1em;
+    border-radius: 0.5em;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    width: 50%;
+}
+
+.options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 0.5em;
+}
+
+.btn {
+    border-radius: 0.2em;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: var(--hover-cyan);
+    color: var(--very-dark-cyan);
+}
+
+.option {
+    align-content: center;
+    padding: 0 1em;
+    background-color: var(--very-dark-cyan);
+    color: var(--white);
+}
+
+.active {
+    background-color: var(--strong-cyan);
+}
+
+.custom-option {
+    height: min-content;
+}
+
+.custom-option::placeholder {
+    color: var(--dark-grayish-cyan);
+    text-align: center;
+}
+
+.bill {
+    background-image: url("./images/icon-dollar.svg");
+    background-repeat: no-repeat;
+    background-position: 1em;
+}
+
+.people {
+    background-image: url("./images/icon-person.svg");
+    background-repeat: no-repeat;
+    background-position: 1em;
+}
+
+.reset-btn {
+    background-color: var(--strong-cyan);
+    color: var(--white);
+    grid-column: 1 / span 3;
+    height: fit-content;
+    padding: 0.2em;
+    align-self: flex-end;
+}
+
+.reset-btn:disabled {
+    background-color: var(--disabled-cyan);
+    color: var(--very-dark-cyan);
+}
+
+.amount-to-pay:nth-child(1) {
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 1;
+    display: flex;
+    justify-content: space-between;
+}
+
+.amount-to-pay:nth-child(2) {
+    grid-column: 1 / span 2;
+    grid-row: 2 / span 2;
+    display: flex;
+    justify-content: space-between;
+}
+
+.title-text {
+    font-size: 0.8em;
+}
+
+.per-person {
+    font-size: 0.6em;
+    color: var(--grayish-cyan);
+}
+
+.money {
+    font-size: 1.5em;
+    color: var(--strong-cyan);
+}
+
+.error {
+    border: 0.1em solid var(--error-red) !important;
+}
+
+.no-of-people {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.error-text {
+    font-size: 0.8em;
+    color: var(--error-red);
+    display: none;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 0;
+        height: auto;
+    }
+    main {
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 0;
+        border-radius: 0.5em 0.5em 0 0;
+    }
+
+    .amount {
+        width: 100%;
+    }
+
+    .calculator {
+        width: 100%;
+    }
+
+    .options {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .reset-btn {
+        grid-column: 1 / span 2;
+    }
+
+    .amount-to-pay:nth-child(1) {
+        grid-column: 1 / span 2;
+        grid-row: 1 / span 1;
+    }
+
+    .amount-to-pay:nth-child(2) {
+        grid-column: 1 / span 2;
+        grid-row: 2 / span 2;
+    }
+}
