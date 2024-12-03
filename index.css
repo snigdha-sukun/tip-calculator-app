@@ -121,7 +121,7 @@ button {
     color: var(--very-dark-cyan);
 }
 
-.option {
+.tip-btn {
     align-content: center;
     padding: 0 1em;
     background-color: var(--very-dark-cyan);
